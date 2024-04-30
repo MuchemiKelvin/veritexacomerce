@@ -1,16 +1,17 @@
 <head>
 
   <div class="header">
-    <a href="#default" class="logo">CompanyLogo</a>
+    <a routerLink="/" class="logo">CompanyLogo</a>
     <div class="header-right">
-      <a class="active" href="#home">Home</a>
-      <a href="#product">Product</a>
-      <a href="#about">About</a>
-      <a href="#cart">Cart</a>
-      <a href="#contact">Contact Us</a>
+      <a routerLinkActive="active" routerLink="" ariaCurrentWhenActive="page">Home</a>
+      <a routerLinkActive="active" routerLink="product" ariaCurrentWhenActive="page">Product</a>
+      <a routerLinkActive="active"  routerLink="about" ariaCurrentWhenActive="page">About</a>
+      <a routerLinkActive="active" routerLink="cart" ariaCurrentWhenActive="page">Cart</a>
+      <a routerLinkActive="active" routerLink="contact" ariaCurrentWhenActive="page">Contact Us</a>
     </div>
   </div>
-
-<app-home></app-home>
-
+<!-- 
+<app-home></app-home> -->
+<router-outlet></router-outlet>
 </head>
+<app-footer></app-footer>

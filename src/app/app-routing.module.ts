@@ -8,7 +8,7 @@ import { ProductsComponent } from './pages/products/products.component';
 
 const routes: Routes = [
   {
-    path: 'products',
+    path: '',
     component: HomeComponent
   },
   {
@@ -22,7 +22,7 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent
-  }
+  },
   {
     path: 'contact',
     component: ContactComponent
@@ -34,4 +34,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+  
 export class AppRoutingModule { }
+
+export default routes;
