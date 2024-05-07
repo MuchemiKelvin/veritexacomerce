@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Ring",
+        "price": 200,
+        "imageUrl": "assets/images/p1.png"
+    },
+    {
+        "name": "Watch",
+        "price": 300,
+        "imageUrl": "assets/images/p2.png"
+    },
+    {
+        "name": "Teddy Bear",
+        "price": 110,
+        "imageUrl": "assets/images/p3.png"
+    },
+    {
+        "name": "Flower Bouquet",
+        "price": 45,
+        "imageUrl": "assets/images/p4.png"
+    },
+    {
+        "name": "Teddy Bear",
+        "price": 95,
+        "imageUrl": "assets/images/p5.png"
+    },
+    {
+        "name": "Flower Bouquet",
+        "price": 70,
+        "imageUrl": "assets/images/p6.png"
+    },
+    {
+        "name": "Watch",
+        "price": 400,
+        "imageUrl": "assets/images/p7.png"
+    },
+    {
+        "name": "Ring",
+        "price": 450,
+        "imageUrl": "assets/images/p8.png"
+    }
+]
