@@ -96,6 +96,9 @@
     padding: 10px;
     margin-top: 25px;
 }
+.shop_section .box .hover{
+            opacity: 0.2;
+}
 
 .shop_section .box a {
     color: #000000;
@@ -177,4 +180,19 @@
 .shop_section .btn-box a:hover {
     background-color: transparent;
     color: #f16179;
+}
+.card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+.card button:hover {
+    opacity: 0.2;
 }
