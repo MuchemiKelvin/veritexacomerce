@@ -5,6 +5,7 @@ import { CartComponent } from './pages/cart/cart.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProductsComponent } from './pages/products/products.component';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 
 const routes: Routes = [
   {
@@ -27,14 +28,18 @@ const routes: Routes = [
     path: 'contact',
     component: ContactComponent
 
-  }
+  },
+  { path: 'products/:productId',
+    component: ProductDetailsComponent
+  },
+  { path: '', redirectTo: '/products', pathMatch: 'full' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-  
+
 export class AppRoutingModule { }
 
 export default routes;

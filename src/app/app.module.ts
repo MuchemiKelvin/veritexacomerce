@@ -9,6 +9,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProductsComponent } from './pages/products/products.component';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +19,7 @@ import { ProductsComponent } from './pages/products/products.component';
     ContactComponent,
     ProductsComponent,
     FooterComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     BrowserModule,

@@ -20,6 +20,7 @@ export class ProductsComponent implements OnInit {
       console.log({data})
     });
   }
+
 }
 
 // product.model.ts
@@ -29,3 +30,5 @@ export interface Product {
   price: number;
   imageUrl: string;
 }
+
+
