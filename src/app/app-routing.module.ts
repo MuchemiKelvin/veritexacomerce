@@ -31,8 +31,7 @@ const routes: Routes = [
   },
   { path: 'products/:productId',
     component: ProductDetailsComponent
-  },
-  { path: '', redirectTo: '/products', pathMatch: 'full' }
+  }
 ];
 
 @NgModule({

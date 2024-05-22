@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Product } from '../products/products.component';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-product-details',
@@ -10,12 +10,21 @@ import { Product } from '../products/products.component';
 export class ProductDetailsComponent implements OnInit {
   product: Product | undefined;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit(): void {
-    const routeParams = this.route.snapshot.paramMap;
-    const productIdFromRoute = Number(routeParams.get('productId'));
-
-    this.product = products.find(product => product.id === productIdFromRoute);
+    const productId = this.route.snapshot.paramMap.get('id');
+    if (productId) {
+      this.http.get<Product[]>('assets/products.json').subscribe((products: Product[]) => {
+        this.product = products.find(p => p.id === productId);
+      });
+    }
   }
+}
+
+export interface Product {
+  id: string;
+  name: string;
+  price: number;
+  imageUrl: string;
 }
