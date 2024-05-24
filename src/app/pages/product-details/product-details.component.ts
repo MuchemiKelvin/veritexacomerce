@@ -1,6 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-product-details',
@@ -13,12 +13,16 @@ export class ProductDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit(): void {
-    const productId = this.route.snapshot.paramMap.get('id');
-    if (productId) {
+    this.route.paramMap.subscribe((data)=>{
+      const productId = data.get('productId');
+
+      if (productId) {
       this.http.get<Product[]>('assets/products.json').subscribe((products: Product[]) => {
         this.product = products.find(p => p.id === productId);
       });
     }
+    })
+    
   }
 }
 
