@@ -2,7 +2,8 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-
+import { CartService } from '../../services/cart.service';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -11,7 +12,12 @@ import { Component, OnInit } from '@angular/core';
 export class ProductsComponent implements OnInit {
   products: Product[]=[]; // Define products array with Product interface
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private route: ActivatedRoute,
+    private cartService: CartService
+  ) { }
+
+
 
   ngOnInit(): void {
     // Fetch product data from JSON file
@@ -20,8 +26,13 @@ export class ProductsComponent implements OnInit {
       console.log({data})
     });
   }
-
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
+    window.alert('Your product has been added to the cart!');
+    console.log(window.alert);
+  }
 }
+
 
 // product.model.ts
 
