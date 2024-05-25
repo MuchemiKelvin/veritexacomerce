@@ -2,8 +2,9 @@
   <h2>{{ product.name }}</h2>
   <img [src]="product.imageUrl" alt="{{ product.name }}">
   <p>Price: ${{ product.price }}</p>
-  <button type="button" (onClick)="addToCart(product)">Buy</button>
+<div><button type="button" (onClick)="addToCart(product)">Buy</button></div>
 </div>
+
 <div *ngIf="!product">
   <p>Product not found.</p>
   {{product}}
