@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { ProductsComponent } from '../pages/products/products.component';
 // import { Product } from '../pages/product-details/product-details.component';
 import { Product } from '../pages/products/products.component';
 

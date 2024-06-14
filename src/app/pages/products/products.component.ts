@@ -2,8 +2,8 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../../services/cart.service';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from '../../services/cart.service';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -26,10 +26,13 @@ export class ProductsComponent implements OnInit {
       console.log({data})
     });
   }
-  addToCart(product: Product) {
-    this.cartService.addToCart(product);
-    window.alert('Your product has been added to the cart!');
-    console.log(window.alert);
+  // addToCart(product: Product) {
+  //   this.cartService.addToCart(product);
+  //   window.alert('Your product has been added to the cart!');
+  //   console.log(window.alert);
+  // }
+  addToCartTest() {
+    window.alert('This cart is working!');
   }
 }
 
