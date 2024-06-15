@@ -9,6 +9,10 @@ import { Component } from '@angular/core';
 })
 export class CartComponent {
 
+  delete(): void{
+    window.alert("Deleted a product!");
+  }
+
  products = this.cartService.getPoducts
   constructor(
     private cartService: CartService
