@@ -17,8 +17,6 @@ export class ProductsComponent implements OnInit {
     private cartService: CartService
   ) { }
 
-
-
   ngOnInit(): void {
     // Fetch product data from JSON file
     this.http.get<Product[]>('assets/products.json').subscribe((data: Product[]) => {
@@ -26,13 +24,9 @@ export class ProductsComponent implements OnInit {
       console.log({data})
     });
   }
-  // addToCart(product: Product) {
-  //   this.cartService.addToCart(product);
-  //   window.alert('Your product has been added to the cart!');
-  //   console.log(window.alert);
-  // }
-  addToCartTest() {
-    window.alert('This cart is working!');
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
+    window.alert('Your product has been added to the cart!');
   }
 }
 
