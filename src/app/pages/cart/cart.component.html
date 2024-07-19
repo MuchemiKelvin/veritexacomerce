@@ -1,9 +1,23 @@
-<h2>Cart</h2>
-<div *ngFor="let item of products">
-  <h3>{{ item.name }}</h3>
-  <p>Price: {{ item.price }}</p>
+<h3>Cart</h3>
+
+<!-- <div class="cart-item" *ngfor="let item of items">
+  <span>{{ products.name }}</span>
+  <span>{{ products.price}}</span>
 </div>
-<!-- <button>Clear Cart</button> -->
- <div class="app-button-space">
-  <button style="background-color: blue;" (click)="delete">Clear</button>
- </div>
+<div class="app-button-space">
+  <button (click)="clearCart(products)">Clear Cart</button>
+</div> -->
+
+
+<div *ngIf="(cartItems$ | async)?.length > 0; else emptyCart">
+  <div *ngFor="let item of cartItems$ | async">
+    <p>{{ item.name }} - {{ item.price }} x {{ item.quantity }}</p>
+    <button (click)="removeItem(item.id)">Remove</button>
+  </div>
+  <p>Total: {{ getCartTotal() }}</p>
+  <button (click)="clearCart()">Clear Cart</button>
+  <button routerLink="/checkout">Checkout</button>
+</div>
+<ng-template #emptyCart>
+  <p>Your cart is empty.</p>
+</ng-template>

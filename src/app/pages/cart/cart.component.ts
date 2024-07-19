@@ -2,25 +2,6 @@ import { CartService } from './../../services/cart.service';
 import { Component } from '@angular/core';
 // import { CartService } from '../../services/cart.service';
 
-@Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrl: './cart.component.css'
-})
-export class CartComponent {
-
-  delete(): void{
-    window.alert("Deleted a product!");
-  }
-
- products = this.cartService.getPoducts
-  constructor(
-    private cartService: CartService
-  ) { }
-}
-
-
-// product.model.ts
 
 export interface Product {
   id: string;
@@ -28,3 +9,49 @@ export interface Product {
   price: number;
   imageUrl: string;
 }
+
+@Component({
+  selector: 'app-cart',
+  templateUrl: './cart.component.html',
+  styleUrl: './cart.component.css'
+})
+  
+// export class CartComponent {
+//   products = this.cartService.getPoducts
+//   constructor(
+//     private cartService: CartService
+//   ) { }
+
+export class CartComponent implements OnInit {
+  cartItems$ = this.cartService.cartItems$;
+
+  constructor(private cartService: CartService) { }
+
+  ngOnInit(): void { }
+
+  removeItem(itemId: number) {
+    this.cartService.removeFromCart(itemId);
+    window.alert('Product removed from Cart!');
+  }
+
+  getCartTotal() {
+    return this.cartService.getCartTotal();
+  }
+
+  clearCart() {
+    this.cartService.clearCart();
+    window.alert('Your Cart has been clear successfully!');
+  }
+
+
+
+
+  // deleteFromCart(product: Product) {
+  //   this.cartService.addToCart(product);
+  //   window.alert('Your product has been deleted from the cart!');
+  // }
+}
+
+
+// product.model.ts
+
