@@ -1,15 +1,19 @@
 <h3>Cart</h3>
 
-<!-- <div class="cart-item" *ngfor="let item of items">
-  <span>{{ products.name }}</span>
-  <span>{{ products.price}}</span>
+@for (item of products; track item) {
+<div class="cart-item">
+  <img [src]="item.imageUrl" alt="">
+  <span>{{ item.name }}</span>
+  <span>{{ item.price}}</span>
 </div>
+}
+
 <div class="app-button-space">
-  <button (click)="clearCart(products)">Clear Cart</button>
-</div> -->
+  <button (click)="clearCart()">Clear Cart</button>
+</div>
 
 
-<div *ngIf="(cartItems$ | async)?.length > 0; else emptyCart">
+<!-- <div *ngIf="(cartItems$ | async)?.length > 0; else emptyCart">
   <div *ngFor="let item of cartItems$ | async">
     <p>{{ item.name }} - {{ item.price }} x {{ item.quantity }}</p>
     <button (click)="removeItem(item.id)">Remove</button>
@@ -17,7 +21,7 @@
   <p>Total: {{ getCartTotal() }}</p>
   <button (click)="clearCart()">Clear Cart</button>
   <button routerLink="/checkout">Checkout</button>
-</div>
+</div> -->
 <ng-template #emptyCart>
   <p>Your cart is empty.</p>
 </ng-template>
