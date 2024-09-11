@@ -28,6 +28,10 @@ export class CartComponent {
     this.cartService.clearCart();
     window.alert('Your Cart has been clear successfully!');
   }
+
+  getTotalCost(): number {
+    return this.products.reduce((total, product) => total + product.price, 0);
+  }
 }
 // export class CartComponent implements OnInit {
 //   cartItems = this.cartService.product;

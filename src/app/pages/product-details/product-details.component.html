@@ -1,13 +1,14 @@
-<div *ngIf="product">
-  <h2>{{ product.name }}</h2>
-  <img [src]="product.imageUrl" alt="{{ product.name }}">
-  <p>Price: ${{ product.price }}</p>
-<div>
-  <button (click)="addToCart(product)">Add To Cart</button>
-</div>
-</div>
-
-<div *ngif="!product">
-  <p>Product not found.</p>
-  {{product}}
+<div class="product-container">
+  @if (product) {
+    <div class="product-details">
+      <img [src]="product.imageUrl" alt="{{ product.name }}" class="product-image">
+      <div class="product-info">
+        <h2>{{ product.name }}</h2>
+        <p class="product-price">{{ product.price | currency }}</p>
+        <button (click)="addToCart(product)" class="add-to-cart-btn">Add To Cart</button>
+      </div>
+    </div>
+  } @else {
+    <p class="not-found">Product not found.</p>
+  }
 </div>

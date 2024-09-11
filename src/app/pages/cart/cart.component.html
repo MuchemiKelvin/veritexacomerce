@@ -1,27 +1,19 @@
 <h3>Cart</h3>
 
-@for (item of products; track item) {
-<div class="cart-item">
-  <img [src]="item.imageUrl" alt="">
-  <span>{{ item.name }}</span>
-  <span>{{ item.price}}</span>
-</div>
-}
+@if (products.length > 0) {
+  @for (item of products; track item) {
+    <div class="cart-item">
+      <img [src]="item.imageUrl" alt="{{ item.name }}" class="item-image">
+      <span class="item-name">{{ item.name }}</span>
+      <span class="item-price">{{ item.price | currency }}</span>
+    </div>
+  }
 
-<div class="app-button-space">
-  <button (click)="clearCart()">Clear Cart</button>
-</div>
-
-
-<!-- <div *ngIf="(cartItems$ | async)?.length > 0; else emptyCart">
-  <div *ngFor="let item of cartItems$ | async">
-    <p>{{ item.name }} - {{ item.price }} x {{ item.quantity }}</p>
-    <button (click)="removeItem(item.id)">Remove</button>
+  <div class="cart-total">
+    <strong>Total:</strong> <span>{{ getTotalCost() | currency }}</span>
   </div>
-  <p>Total: {{ getCartTotal() }}</p>
+
   <button (click)="clearCart()">Clear Cart</button>
-  <button routerLink="/checkout">Checkout</button>
-</div> -->
-<ng-template #emptyCart>
+} @else {
   <p>Your cart is empty.</p>
-</ng-template>
+}
